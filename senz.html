@@ -6,6 +6,36 @@
     <link href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href="http://pingendo.github.io/pingendo-bootstrap/themes/default/bootstrap.css" rel="stylesheet" type="text/css">
   </head><body>
+<style>
+  .dropshadowclass {
+        border: solid 1px #CCC;
+    -moz-box-shadow: 5px 5px 0px #999;
+    -webkit-box-shadow: 5px 5px 0px #999;
+        box-shadow: 5px 5px 0px #999;
+        }
+  .imagedropshadow {
+    padding: 5px;
+    border: solid 1px #EFEFEF;
+}
+a:hover img.imagedropshadow {
+    border: solid 1px #CCC;
+    -moz-box-shadow: 1px 1px 5px #999;
+    -webkit-box-shadow: 1px 1px 5px #999;
+        box-shadow: 1px 1px 5px #999;
+}
+
+.bLeft
+{
+    width: 200px;
+    height: 100px;
+}
+.bRight
+{
+    width: 600px;
+    height: 100px;
+}
+
+</style>
     <div class="section">
       <div class="container">
         <div class="row">
@@ -50,24 +80,98 @@
       <div class="container">
         <div class="row">
           <div class="col-md-12">
-            <h1>Structure of SenZ</h1>
+            <h1>What is Senz ?</h1>
             <br>
             <div class="row">
-              <div class="col-md-12">SenZ is a new kind of query language that can be used to talk with IoT
-                devices (devices work with Mysensors switch). We have designed this language
-                according to the twitter application syntax. The communication between each
-                devices done via Mysensors switch by using SenZ. SenZ consists of five main components.
+              <div class="col-md-12">
+                <p align="justify"><span style="color">SenZ is a new kind of query language that can be used to communicate with IoT Devices .
+                It is easily integrable , Ultimately fast and is in the Highest end of security integration. Also it is lively
+                developed accordingly. As it is said earlier this uses a <span style="color:#6571D5">#twitter</span> like massaging syntax which has made this
+                language a usable , more powerful and understandable. The communication between each of these devices are done
+                via the My sensors switch which was developed using python, A high-end application switch which works as a
+                massage broker. Once client devices are registered in the switch they should share their data to specific
+                people(Other client devices). Then the. Then they are capable of sharing massages accordingly.
+                </span>
+                </p>
                 <p></p>
-                <ol>
-                  <li>Type (have predefined types)</li>
-                  <li>Attributes (define sensors)</li>
-                  <li>Receiver(identifies by username)</li>
-                  <li>Sender(identifies by username)</li>
-                  <li>Signature (digital signature)</li>
-                </ol>
-                <pre>                  <code>&lt;type&gt; #&lt;attribute name&gt; &lt;attribute value&gt; #time &lt;current
-                    timestamp&gt; @&lt;receiver&gt; ^&lt;sender&gt; &lt;digital signature&gt;</code>
+                  <center>
+                    <img src="img/p1structure.png" class="img-responsive img-thumbnail imagedropshadow">
+                  </center>
+                <p></p>
+                <p></p>
+                <br>
+                <h1>Internal Working (massaging Structure)</h1>
+                <br>
+                <p>As it was said earlier senZ follows a <span style="color:#6571D5">#twitter</span> like massage
+                  structure which has made it unique compared to the ones out there.
+                </p>
+
+                <pre>
+                  <code>&lt;type&gt; #&lt;attribute name&gt; &lt;attribute value&gt; #time &lt;current timestamp&gt; @&lt;receiver&gt; ^&lt;sender&gt; &lt;digital signature&gt;
+                  </code>
                 </pre>
+
+
+                <table>
+                  <tr>
+                    <td class="bLeft"><code>&lt;type&gt;</code>
+                    </td>
+                    <td class="bRight">Here, type refers to the type of the massage to be sent currently it has 5 types
+                      of massages. They are SHARE,UNSHARE,GET,PUT,DATA. Each of these massage types are used for different
+                      purposes which will be discussed later.
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="bLeft"><code>#&lt;attribute name&gt;</code>
+                    </td>
+                    <td class="bRight">Attribute name depends up on your purpose. If its a attribute value from a
+                      thermometer it might be #temp and if its a water level #water_level and so on. It's yours to
+                      define the attributes you are using and sharing.
+                    </td>
+                  </tr>
+                  <td class="bLeft"><code>&lt;attribute value&gt;</code>
+                  </td>
+                  <td class="bRight">This is the value of the attribute you are sharing/sending. It could just be an
+                    integer,string or what ever you wish according to the attribute you are using. This field is ignored
+                    in some massage types and they will be discussed detailed below.
+                  </td>
+                  <tr>
+                    <td class="bLeft"><code>#time</code>
+                    </td>
+                    <td class="bRight">This is also a attribute but since time is a default attribute it has to be sent
+                      always.
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="bLeft"><code>&lt;current timestamp&gt;</code>
+                    </td>
+                    <td class="bRight">This is the value of the time attribute
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="bLeft"><code>@&lt;receiver&gt;</code>
+                    </td>
+                    <td class="bRight">This is the user name of the receiver of the massage.
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="bLeft"><code>^&lt;sender&gt;</code>
+                    </td>
+                    <td class="bRight">This is the user name of the sender of the massage.
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="bLeft"><code>&lt;digital signature&gt;</code>
+                    </td>
+                    <td class="bRight">This is the digital signature for which the sensZ-switch uses to verify that the
+                      intended user has sent the massage.
+                    </td>
+                  </tr>
+                </table>
+
+
+
+
                 <div class="row">
                   <div class="col-md-12">
                     <h1>SenZ types</h1>There are five types of SenZ. These types are SHARE, UNSHARE,
