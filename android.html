@@ -50,72 +50,10 @@
       <div class="container">
         <div class="row">
           <div class="col-md-12">
-            <h1>Structure of SenZ</h1>
-            <br>
-            <div class="row">
-              <div class="col-md-12">SenZ is a new kind of query language that can be used to talk with IoT
-                devices (devices work with Mysensors switch). We have designed this language
-                according to the twitter application syntax. The communication between each
-                devices done via Mysensors switch by using SenZ. SenZ consists of five main components.
-                <p></p>
-                <ol>
-                  <li>Type (have predefined types)</li>
-                  <li>Attributes (define sensors)</li>
-                  <li>Receiver(identifies by username)</li>
-                  <li>Sender(identifies by username)</li>
-                  <li>Signature (digital signature)</li>
-                </ol>
-                <pre>                  <code>&lt;type&gt; #&lt;attribute name&gt; &lt;attribute value&gt; #time &lt;current
-                    timestamp&gt; @&lt;receiver&gt; ^&lt;sender&gt; &lt;digital signature&gt;</code>
-                </pre>
-                <div class="row">
-                  <div class="col-md-12">
-                    <h1>SenZ types</h1>There are five types of SenZ. These types are SHARE, UNSHARE,
-                    GET, PUT and DATA.
-                    <ul>
-                      <li>SHARE type is used to share something to a user.</li>
-                      <li>UNSHARE will do the opposite.</li>
-                      <li>GET type is used when requesting something from a user.</li>
-                      <li>PUT type is used when needs to do some alteration on IoT device. Main
-                        intention of PUT is to control the device.</li>
-                      <li>DATA type is used when sending a response to a SHARE, GET or PUT SenZ</li>
-                    </ul>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col-md-12">
-                    <h1>Message attributes</h1>Attributes are custom defined key/value pairs (values
-                    can be empty). Attributes comes with “#” sign. For an example #time #lat
-                    #lon etc. Different types of attributes can be defined according to the
-                    application scenarios. Other than custom defined attributes we have defined
-                    special attribute such as #pubkey, #key #time and #msg. #pubkey is corresponding
-                    with a public key of a device and #key is corresponding with a session
-                    key (AES 256).For an instance, when device is registering with switch called
-                    senz, we need to share the public key to the switch by sending the following
-                    Senz.
-                    <pre>                      <code>SHARE #pubkey &lt;base64 encoded pubkey&gt; #time &lt;current timestamp&gt;
-                        @senz ^username &lt;digital signature&gt;</code>
-                    </pre>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="section">
-              <div class="container">
-                <div class="row">
-                  <div class="col-md-12">
-                    <ul class="pager">
-                      <li>
-                        <a href="#">←  Prev</a>
-                      </li>
-                      <li>
-                        <a href="#bootom">Next  →</a>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </div>
+            <h1>Android Service</h1>
+
+
+
             <footer class="section section-primary" id="bootom">
               <div class="container">
                 <div class="row">
