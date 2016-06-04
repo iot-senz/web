@@ -27,12 +27,24 @@ a:hover img.imagedropshadow {
 .bLeft
 {
     width: 200px;
-    height: 100px;
+    height: 70px;
 }
 .bRight
 {
     width: 600px;
-    height: 100px;
+    height: 70px;
+}
+
+.bListLeft
+{
+    width: 150px;
+    height: 70px;
+}
+
+.bListRight
+{
+    width: 600px;
+    height: 70px;
 }
 
 </style>
@@ -171,21 +183,40 @@ a:hover img.imagedropshadow {
 
 
 
-
-                <div class="row">
-                  <div class="col-md-12">
-                    <h1>SenZ types</h1>There are five types of SenZ. These types are SHARE, UNSHARE,
+                <h1>SenZ types</h1>
+                <p>There are five types of SenZ. These types are SHARE, UNSHARE,
                     GET, PUT and DATA.
-                    <ul>
-                      <li>SHARE type is used to share something to a user.</li>
-                      <li>UNSHARE will do the opposite.</li>
-                      <li>GET type is used when requesting something from a user.</li>
-                      <li>PUT type is used when needs to do some alteration on IoT device. Main
-                        intention of PUT is to control the device.</li>
-                      <li>DATA type is used when sending a response to a SHARE, GET or PUT SenZ</li>
-                    </ul>
-                  </div>
-                </div>
+                </p>
+
+                <table>
+                  <tr>
+                    <td class="bListLeft"><code>SHARE</code></td>
+                    <td class="bListRight">This massage type is used when you need to share some attributes to some
+                      client/device.</td>
+                  </tr>
+                  <tr>
+                    <td class="bListLeft"><code>UNSHARE</code></td>
+                    <td class="bListRight">This does the opposite of the SHARE</td>
+                  </tr>
+                  <tr>
+                    <td class="bListLeft"><code>GET</code></td>
+                    <td class="bListRight">This massage type is used when you are requesting a SHARES attribute from
+                      a client/device.</td>
+                  </tr>
+                  <tr>
+                    <td class="bListLeft"><code>PUT</code></td>
+                    <td class="bListRight">This massage type is used when you need to do some alternation to the device.
+                      When you need to control some device/application/client.
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="bListLeft"><code>DATA</code></td>
+                    <td class="bListRight">This massage type is used when replying to a GET,PUT or a SHARE. To send
+                      the reply with the requested data.</td>
+                  </tr>
+                </table>
+
+
                 <div class="row">
                   <div class="col-md-12">
                     <h1>Message attributes</h1>Attributes are custom defined key/value pairs (values
@@ -197,29 +228,53 @@ a:hover img.imagedropshadow {
                     key (AES 256).For an instance, when device is registering with switch called
                     senz, we need to share the public key to the switch by sending the following
                     Senz.
-                    <pre>                      <code>SHARE #pubkey &lt;base64 encoded pubkey&gt; #time &lt;current timestamp&gt;
-                        @senz ^username &lt;digital signature&gt;</code>
-                    </pre>
+                    <p></p>
+                    <pre>                     <code>SHARE #pubkey &lt;base64 encoded pubkey&gt; #time &lt;current timestamp&gt; @senz ^username &lt;digital signature&gt;</code></pre>
                   </div>
+                </div>
+                <h1>Let's Take an Example scenario</h1>
+                <h3><span>Let's assume a Bank b1 would like to share balance
+                  transaction securely to a user u1.</span></h3>
+
+                <div class="col-sm-12 col-md-8 col-lg-8">
+                  <ul style="list-style-type:circle">
+                    <li>The bank (b1) should send the following Senze and obtain the public key of the user u1.
+                    <br>
+                    <pre><code>GET #pubkey @u1 #time t1 ^b1 Signature</code></pre>
+                    </li>
+                    <li>Senze switch delivers the public key as follows(If u1 is not exists, public key will not be sent).
+                      <br>
+                      <pre><code>DATA #pubkey PublicKeyOfu1 #time t2 ^mysensors Signature</code></pre>
+                    </li>
+                    <li>The bank(b1) should share the balance transaction and a AES key (k1) to the user u1.
+                      The key k1 is encrypted with the public key of the user u1.
+                      <br>
+                      <pre><code>SHARE #balance $key E(k1) @u1 #time t3 ^b1 Signature</code></pre>
+                    </li>
+                    <li>The user (u1) should reply to it as follows.
+                      <br>
+                      <pre><code>SHARE #msg OK @b1 #time t4 ^u1 Signature</code></pre>
+                    </li>
+
+                    <br>
+                    <center> The bank and the user can keep this AES key for encrypting the balance transactions.
+                      The bank can refresh the key by repeating the third step</center>
+                    <br>
+
+                    <li>The user(u1) should request the balance by sending the following SENZE.
+                    <br>
+                    <pre><code>GET #balance accountNumber @b1 #time t5 ^u1 Signature</code></pre>
+                   </li>
+                    <li>The bank b1 should response to it as follows.
+                      Account balance is encrypted by using the AES key(k1).(Upon received this DATA SENZE, user should
+                      decrypt it and display it on the application.)
+                      <br>
+                      <pre><code>DATA $balance E(x) @u1 #time t6 ^b1 Signature</code></pre>
+                    </li>
                 </div>
               </div>
             </div>
-            <div class="section">
-              <div class="container">
-                <div class="row">
-                  <div class="col-md-12">
-                    <ul class="pager">
-                      <li>
-                        <a href="#">←  Prev</a>
-                      </li>
-                      <li>
-                        <a href="#bootom">Next  →</a>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </div>
+   <p></p>
             <footer class="section section-primary" id="bootom">
               <div class="container">
                 <div class="row">
