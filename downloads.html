@@ -47,7 +47,52 @@
         height:300px;
     }
 
-  </style>
+
+    body {font-family: "Lato", sans-serif;}
+
+    ul.tab {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        border: 1px solid #ccc;
+        background-color: #f1f1f1;
+    }
+
+    /* Float the list items side by side */
+    ul.tab li {float: left;}
+
+    /* Style the links inside the list items */
+    ul.tab li a {
+        display: inline-block;
+        color: black;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+        transition: 0.3s;
+        font-size: 17px;
+    }
+
+    /* Change background color of links on hover */
+    ul.tab li a:hover {
+        background-color: #ddd;
+    }
+
+    /* Create an active/current tablink class */
+    ul.tab li a:focus, .active {
+        background-color: #ccc;
+    }
+
+    /* Style the tab content */
+    .tabcontent {
+        display: none;
+        padding: 6px 12px;
+        border: 1px solid #ccc;
+        border-top: none;
+    }
+</style>
+
+
 <div class="section">
     <div class="container">
         <div class="row">
@@ -93,47 +138,58 @@
         <div class="row">
             <div class="col-md-12">
 
-                <table>
-                    <tr>
-                        <td class="bLeft">
-                            <h2 align="center">Source Code</h2>
-                        </td>
-                        <td class="bRight">
-                            <h2 align="center">Publications</h2>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="bTLeft">
-                            <h4><a href="https://github.com/iot-senz/senz-switch">SenZ-Switch</a></h4><p>General senz-switch source that coud be customized on your need </p>
-                            <br>
-                            <h4><a href="https://github.com/iot-senz/topupz">TopUpZ</a></h4><p>a Top up payment Application</p>
-                            <br>
-                            <h4><a href="https://github.com/iot-senz/payz-bank">PayZ-Bank</a></h4><p>a Mobile Banking application</p>
-                            <br>
-                            <h4 ><a href="https://github.com/iot-senz/shopz">ShopZ</a></h4><p>Secure canteen application for easy payment</p>
-                            <br>
-                            <h4><a href="https://github.com/iot-senz/payz">PayZ</a></h4><p>Secure Mobile payment Application</p>
-                            <br>
-                            <h4><a href="https://github.com/iot-senz/senz">senZ</a></h4><p>SenZ Client service for all android SenZ applications </p>
-                            <br>
-                            <h4><a href="https://github.com/iot-senz/sdbl-trans">SDBL-TRANZ</a></h4><p>Mobile banking system running on SDBL-SriLanka</p>
-                            <br>
-                            <h4><a href="https://github.com/iot-senz/locationz">LocationZ</a></h4><p>Location sharing application with senZ</p>
-                            <br>
-                            <h4><a href="https://github.com/iot-senz/sdbl-trans">SDBL-TRANZ</a></h4><p>Mobile banking system running on SDBL-SriLanka</p>
-                            <br>
-                        </td>
-                        <td valign="top" class="bTRight ">
-                            <h4><a href=""><i>Research paper - Mysensors Platform</i></a></h4><p><i>Recently published research paper on Mysensors research</i></p>
 
-                        </td>
-                    </tr>
-                </table>
+                <body>
 
+                <ul class="tab">
+                    <li><a href="#" class="tablinks" onclick="openCity(event, 'Source Code')">Source Code</a></li>
+                    <li><a href="#" class="tablinks" onclick="openCity(event, 'Publications')">Publications</a></li>
+                </ul>
 
+                <div id="Source Code" class="tabcontent">
+                    <h3>Source Code</h3>
+                    <h4><a href="https://github.com/iot-senz/senz-switch">SenZ-Switch</a></h4><p>General senz-switch source that coud be customized on your need </p>
+                    <br>
+                    <h4><a href="https://github.com/iot-senz/topupz">TopUpZ</a></h4><p>a Top up payment Application</p>
+                    <br>
+                    <h4><a href="https://github.com/iot-senz/payz-bank">PayZ-Bank</a></h4><p>a Mobile Banking application</p>
+                    <br>
+                    <h4 ><a href="https://github.com/iot-senz/shopz">ShopZ</a></h4><p>Secure canteen application for easy payment</p>
+                    <br>
+                    <h4><a href="https://github.com/iot-senz/payz">PayZ</a></h4><p>Secure Mobile payment Application</p>
+                    <br>
+                    <h4><a href="https://github.com/iot-senz/senz">senZ</a></h4><p>SenZ Client service for all android SenZ applications </p>
+                    <br>
+                    <h4><a href="https://github.com/iot-senz/sdbl-trans">SDBL-TRANZ</a></h4><p>Mobile banking system running on SDBL-SriLanka</p>
+                    <br>
+                    <h4><a href="https://github.com/iot-senz/locationz">LocationZ</a></h4><p>Location sharing application with senZ</p>
+                    <br>
+                    <h4><a href="https://github.com/iot-senz/sdbl-trans">SDBL-TRANZ</a></h4><p>Mobile banking system running on SDBL-SriLanka</p>
+                    <br>
+                </div>
 
+                <div id="Publications" class="tabcontent">
+                    <h3>Publications</h3>
+                    <h4><a href="#"><i>Research paper - Mysensors Platform</i></a></h4><p><i>Recently published research paper on Mysensors research</i></p>
 
-
+                </div>
+                <br>
+                <br>
+                <script>
+                    function openCity(evt, cityName) {
+                        var i, tabcontent, tablinks;
+                        tabcontent = document.getElementsByClassName("tabcontent");
+                        for (i = 0; i < tabcontent.length; i++) {
+                            tabcontent[i].style.display = "none";
+                        }
+                        tablinks = document.getElementsByClassName("tablinks");
+                        for (i = 0; i < tablinks.length; i++) {
+                            tablinks[i].className = tablinks[i].className.replace(" active", "");
+                        }
+                        document.getElementById(cityName).style.display = "block";
+                        evt.currentTarget.className += " active";
+                    }
+                </script>
 
                 <footer class="section section-primary" id="bootom">
                     <div class="container">
