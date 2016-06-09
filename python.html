@@ -1,4 +1,4 @@
-<html><head>
+<html xmlns="http://www.w3.org/1999/html"><head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
@@ -49,8 +49,8 @@
 <div class="section" id="top">
   <div class="container">
     <div class="row">
-      <div class="col-md-12">
-        <h1>Python service</h1>
+      <p class="col-md-12">
+        <h1>Python Client</h1>
         <br>
 
         <p>
@@ -58,7 +58,98 @@
           simply build apps on it</p>
         <br>
 
+        <p align="justify">You should read this if you are going to build your app on the python client platform.</p>
 
+        <center><img src="img/network.png" class="img-responsive img-thumbnail"></center>
+        <br>
+        <br>
+
+        <p align="justify">In the python client Code (senz-client)  , all you need is to take in to granted
+          the senzHandler class. Where receiving senz massages are read here and the appropriate actions are handled.
+          So what you have to do is you will have to write your code here to combine your app to this senz. Sometimes
+          if you are using a different type of language and still you can write code here and connect your app
+          accordingly.</p>
+
+        <p>If You observe the Directory structure of the source code you will find it like this</p>
+
+
+
+        <center><img src="img/dir.png" class="img-responsive img-thumbnail"></center>
+        <br>
+        <br>
+        <h3>Running the basic python client application.</h3>
+        <br>
+        <p align="justify">Once you have downloaded the application, the first thing you have to do is thatssave it in to a desired directory. Then open the command line or a text editor like gedit and edit the following file.
+          <code>Config.cfg</code> located in the project directory itself. There you will have to enter the switch details</p>
+
+        <pre><code>
+          #udp mysensors info
+          [connections]
+          host=localhost
+          port=9090
+          state=INITIAL
+          senzy=test
+          server=mysensors
+
+
+          [client]
+          name=phonesenZ
+
+          [server]
+          port=9090
+          host=<server_ip_here>
+          name=mysensors</code></pre>
+
+        <p>First you will have to enter the client name which is important to create keys used in communication in the [Client] section</p>
+        <br>
+
+        <pre><code>
+          [client]
+          name=name_of_your_client</code></pre>
+        <br>
+        <p>So here You will have to define the servers ip address in the [server] section</p>
+
+        <pre><code>
+        [server]
+        port=9090
+        host=ip_of_the_server></code></pre>
+        <br>
+      <p align="justify">You are about to run the client now.</p>
+
+      <p align="justify">To run the client You have to be in the projects directory. For example you will have to be in the senz-client directory.</p>
+        <code>$ cd Desktop/senz-client</code>
+
+      <p align="justify">Then in the command line you will have to run</p>
+        <code>$ python senzc/client.py</code>
+
+      <p>Now your client is up and running.</p>
+
+
+      <h3>Using python client on your application</h3>
+
+      <p>Running just the client doesn't make you anything. So you have to use it in your app. For that you have do some
+        simple things. As we discussed earlier the directory structure of source is as below.There in the handlers
+        directory you will find the codes that needs to be edited in order to plug the client in to  your application.</p>
+
+      <img src="img/handlers.png" class="img-responsive img-thumbnail">
+      <br>
+      <p align="justify">In the senz-handler file you will find the senzHandler class. This the place where you would
+        have to  code what happens when a senz is received. Here you can set how the incoming data to be handled,
+        how the reply is to be sent and so on. In case if you want to handle your reply massages you can define
+        them also in another separate file in a directory also.</p>
+
+      <img src="img/handleSenz.png" class="img-responsive img-thumbnail">
+      <br>
+      <p align="justify">Then you will also have to define what happens after massage is done or after handling the
+        senze. This is wheter you need to close the connection , print something on commandline or a call back ,
+        log etc.</p>
+      <img src="img/postHandle.png" class="img-responsive img-thumbnail">
+      <br>
+      <p align="justify">If you were successful doing these
+        You are now up with a working client.</p>
+
+      <br>
+      <br>
 
 
         <footer class="section section-primary" id="bootom">
