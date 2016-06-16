@@ -139,7 +139,11 @@
                   <code>&lt;type&gt; #&lt;attribute name&gt; &lt;attribute value&gt; #time &lt;current timestamp&gt; @&lt;receiver&gt; ^&lt;sender&gt; &lt;digital signature&gt;
                   </code>
                 </pre>
-
+                <center><p>or</p></center>
+                <pre>
+                  <code>&lt;type&gt; $&lt;attribute name&gt; &lt;attribute value&gt; #time &lt;current timestamp&gt; @&lt;receiver&gt; ^&lt;sender&gt; &lt;digital signature&gt;
+                  </code>
+                </pre>
 
                 <table>
                   <tr>
@@ -158,6 +162,15 @@
                       define the attributes you are using and sharing.
                     </td>
                   </tr>
+
+                  <tr>
+                    <td class="bLeft"><code>$&lt;attribute name&gt;</code>
+                    </td>
+                    <td class="bRight">This is not much different from the previous but it simply says that the value referred
+                      to this attribute is encrypted.
+                    </td>
+                  </tr>
+
                   <td class="bLeft"><code>&lt;attribute value&gt;</code>
                   </td>
                   <td class="bRight">This is the value of the attribute you are sharing/sending. It could just be an
