@@ -1,0 +1,132 @@
+<html><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+    <script type="text/javascript" src="http://netdna.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <link href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="http://pingendo.github.io/pingendo-bootstrap/themes/default/bootstrap.css" rel="stylesheet" type="text/css">
+  </head><body>
+    <div class="section">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4 text-justify" style="background-color: #337AFB; border: 4px solid #000000;">
+            <br>
+            <img src="http://www.mysensors.info/img/logo.png" class="img-responsive img-thumbnail">
+            <h4>Connect, right now with #sensors you care about.</h4>
+            <br>
+          </div>
+          <div class="col-md-8 text-justify">
+            <br>
+            <ul class="lead nav nav-pills">
+              <li>
+                <a href="index.html">Home</a>
+              </li>
+              <li>
+                <a href="senz.html">SenZ</a>
+              </li>
+              <li class="active">
+                <a href="#">Android</a>
+              </li>
+              <li>
+                <a href="python.html">Python</a>
+              </li>
+              <li>
+                <a href="downloads.html">Downloads</a>
+              </li>
+              <li>
+                <a href="python.html">Contact</a>
+              </li>
+            </ul>
+            <br>
+            <h4>MySensor switch provides security and privacy in IoT applications. With
+              help of MySensors, IoT devices can communicate each other with guaranteeing
+              end to end security. MySensor supports IoT devices such as Smartphones(android)
+              and Raspberry-pi.</h4>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="section" id="top">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <h1>Android Service</h1>
+            <br>
+            Now senz service is available on Android also. Devolopers could use this to integrate it into their apps or
+            simply build apps on it
+            <br>
+            You should be reading this article if you are willing to devolop apps on Android senz service
+            <p>
+            <img src="img/network.png" class="img-responsive img-thumbnail" width="40%" height="40%">
+
+            <p align="justify">When it comes to the android there are some drawbacks if we just build the app isolated
+            integrating the service to the app. Then we won't be able to be sure that the service is run in background
+            to cater the communication needs since android OS pauses activities when they are in background.
+            So for this reason we had to create a separate isolated service running in the background to cater the
+            communication works on real time. So in this case there is a Android service running in the background.
+            Any of the apps that uses the senZ communication system should communicate with the switch through this
+            service.  To understand the internal architecture see the image below.</p>
+            <h3>Internal Working Architecture</h3>
+
+
+            <img src="img/Architectureandroid.png" class="img-responsive img-thumbnail" width="40%" height="40%">
+            <br>
+            <br>
+
+            <p align="justify">In the android service we have defined a AIDL(Android Interface definition language)
+              which acts as the communication medium between the app and the android service (IPC communication) .
+              So inside app you are going to build you will have to create objects from this AIDL and send massages that
+              need to be sent to the switch. Actually if you are using multiple apps that uses the android senz
+              service , the switch in the other end sees you as a single client who uses its service. It doesn't matter
+              how many apps you are using. Only thing matters is the massages are sent and received in the defined order.
+            </p>
+
+            <p align="justify">The apps needs to be designed in such a way that when they need to pass massages to the
+              senz switch it has to do it through the AIDL interface. It will be explained later in this document. And
+              if the senz switch has replied to a massage then the senz service in the android device will Broadcast the
+              massage. So the app which requested the massage/DATA etc will have to recive it while the others can
+              ignore it.</p>
+
+            <footer class="section section-primary" id="bootom">
+              <div class="container">
+                <div class="row">
+                  <div class="col-sm-6 col-md-8">
+                    <h1>Sustianable Computing Research Laboratory &nbsp;</h1>
+                    <p>35,Reid Avenue, Colombo 7, Sri Lanka
+                      <br>Phone : +94112581124</p>
+                  </div>
+                  <div class="col-sm-6 col-md-4">
+                    <p class="text-info text-right">
+                      <br>
+                      <br>
+                    </p>
+                    <div class="row">
+                      <div class="col-md-10 hidden-lg hidden-md hidden-sm text-left">
+                        <a href="#"><i class="fa fa-3x fa-fw fa-instagram text-inverse"></i></a>
+                        <a href="#"><i class="fa fa-3x fa-fw fa-twitter text-inverse"></i></a>
+                        <a href="#"><i class="fa fa-3x fa-fw fa-facebook text-inverse"></i></a>
+                        <a href="#"><i class="fa fa-3x fa-fw fa-github text-inverse"></i></a>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-10 hidden-xs text-right">
+                        <a href="#"><i class="fa fa-3x fa-fw fa-instagram text-inverse"></i></a>
+                        <a href="#"><i class="fa fa-3x fa-fw fa-twitter text-inverse"></i></a>
+                        <a href="#"><i class="fa fa-3x fa-fw fa-facebook text-inverse"></i></a>
+                        <a href="#"><i class="fa fa-3x fa-fw fa-github text-inverse"></i></a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </footer>
+            <font face="Times New Roman, serif">
+              <font face="Times New Roman, serif"></font>
+            </font>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+
+</body></html>

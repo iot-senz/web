@@ -1,11 +1,55 @@
-<html><head>
+<html>
+  <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
     <script type="text/javascript" src="http://netdna.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
     <link href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href="http://pingendo.github.io/pingendo-bootstrap/themes/default/bootstrap.css" rel="stylesheet" type="text/css">
-  </head><body>
+  </head>
+<body>
+  <style scoped>
+    .dropshadowclass {
+            border: solid 1px #CCC;
+        -moz-box-shadow: 5px 5px 0px #999;
+        -webkit-box-shadow: 5px 5px 0px #999;
+            box-shadow: 5px 5px 0px #999;
+            }
+    .imagedropshadow {
+        padding: 5px;
+        border: solid 1px #EFEFEF;
+    }
+    a:hover img.imagedropshadow {
+        border: solid 1px #CCC;
+        -moz-box-shadow: 1px 1px 5px #999;
+        -webkit-box-shadow: 1px 1px 5px #999;
+            box-shadow: 1px 1px 5px #999;
+    }
+
+    .bLeft
+    {
+        width: 200px;
+        height: 70px;
+    }
+    .bRight
+    {
+        width: 600px;
+        height: 70px;
+    }
+
+    .bListLeft
+    {
+        width: 150px;
+        height: 70px;
+    }
+
+    .bListRight
+    {
+        width: 600px;
+        height: 70px;
+    }
+
+  </style>
     <div class="section">
       <div class="container">
         <div class="row">
@@ -25,13 +69,16 @@
                 <a href="#">SenZ</a>
               </li>
               <li>
-                <a href="#">Android</a>
+                <a href="android.html">Android</a>
               </li>
               <li>
-                <a href="#">Python</a>
+                <a href="python.html">Python</a>
               </li>
               <li>
-                <a href="#">Contact</a>
+                <a href="downloads.html">Downloads</a>
+              </li>
+              <li>
+                <a href="contact.html">Contact</a>
               </li>
             </ul>
             <br>
@@ -47,38 +94,159 @@
       <div class="container">
         <div class="row">
           <div class="col-md-12">
-            <h1>Structure of SenZ</h1>
+            <h1>What is Senz ?</h1>
             <br>
             <div class="row">
-              <div class="col-md-12">SenZ is a new kind of query language that can be used to talk with IoT
-                devices (devices work with Mysensors switch). We have designed this language
-                according to the twitter application syntax. The communication between each
-                devices done via Mysensors switch by using SenZ. SenZ consists of five main components.
+              <div class="col-md-12">
+                <p align="justify"><span style="color">SenZ is a new kind of query language that can be used to communicate with IoT Devices .
+                It is easily integrable , Ultimately fast and is in the Highest end of security integration. Also it is lively
+                developed accordingly. As it is said earlier this uses a <span style="color:#6571D5">#twitter</span> like massaging syntax which has made this
+                language a usable , more powerful and understandable. The communication between each of these devices are done
+                via the My sensors switch which was developed using python, A high-end application switch which works as a
+                massage broker. Once client devices are registered in the switch they should share their data to specific
+                people(Other client devices). Then the. Then they are capable of sharing massages accordingly.
+                </span>
+                </p>
                 <p></p>
-                <ol>
-                  <li>Type (have predefined types)</li>
-                  <li>Attributes (define sensors)</li>
-                  <li>Receiver(identifies by username)</li>
-                  <li>Sender(identifies by username)</li>
-                  <li>Signature (digital signature)</li>
-                </ol>
-                <pre>                  <code>&lt;type&gt; #&lt;attribute name&gt; &lt;attribute value&gt; #time &lt;current
-                    timestamp&gt; @&lt;receiver&gt; ^&lt;sender&gt; &lt;digital signature&gt;</code>
+                  <center>
+                    <img src="img/p1structure.png" class="img-responsive img-thumbnail imagedropshadow">
+                  </center>
+                <p></p>
+                <p></p>
+                <br>
+
+                <h1>what's for you Developers....... ?</h1>
+
+                <p align="justify">It is obvious that you might have the idea that  will it be possible for us to integrate it in to our
+                  system. Or How could we use it in our systems. Sure its the very reason why we have build this in the
+                  way it is.<br>
+                  You developers can develop your applications on top of this platform. There is a senZ switch written
+                  on python. So you will have to install it in a separate server . Then you can use the developed senz
+                  client service written to multiple platforms both mobile and android on which you can develop
+                  applications to communicate using Internet securely with authentication, integrity, confidentiality
+                  and non-repudiation of data together with the access control. .</p>
+
+
+
+
+                <h1>Internal Working (massaging Structure)</h1>
+                <br>
+                <p>As it was said earlier senZ follows a <span style="color:#6571D5">#twitter</span> like massage
+                  structure which has made it unique compared to the ones out there.
+                </p>
+
+                <pre>
+                  <code>&lt;type&gt; #&lt;attribute name&gt; &lt;attribute value&gt; #time &lt;current timestamp&gt; @&lt;receiver&gt; ^&lt;sender&gt; &lt;digital signature&gt;
+                  </code>
                 </pre>
-                <div class="row">
-                  <div class="col-md-12">
-                    <h1>SenZ types</h1>There are five types of SenZ. These types are SHARE, UNSHARE,
+                <center><p>or</p></center>
+                <pre>
+                  <code>&lt;type&gt; $&lt;attribute name&gt; &lt;attribute value&gt; #time &lt;current timestamp&gt; @&lt;receiver&gt; ^&lt;sender&gt; &lt;digital signature&gt;
+                  </code>
+                </pre>
+
+                <table>
+                  <tr>
+                    <td class="bLeft"><code>&lt;type&gt;</code>
+                    </td>
+                    <td class="bRight">Here, type refers to the type of the massage to be sent currently it has 5 types
+                      of massages. They are SHARE,UNSHARE,GET,PUT,DATA. Each of these massage types are used for different
+                      purposes which will be discussed later.
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="bLeft"><code>#&lt;attribute name&gt;</code>
+                    </td>
+                    <td class="bRight">Attribute name depends up on your purpose. If its a attribute value from a
+                      thermometer it might be #temp and if its a water level #water_level and so on. It's yours to
+                      define the attributes you are using and sharing.
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td class="bLeft"><code>$&lt;attribute name&gt;</code>
+                    </td>
+                    <td class="bRight">This is not much different from the previous but it simply says that the value referred
+                      to this attribute is encrypted.
+                    </td>
+                  </tr>
+
+                  <td class="bLeft"><code>&lt;attribute value&gt;</code>
+                  </td>
+                  <td class="bRight">This is the value of the attribute you are sharing/sending. It could just be an
+                    integer,string or what ever you wish according to the attribute you are using. This field is ignored
+                    in some massage types and they will be discussed detailed below.
+                  </td>
+                  <tr>
+                    <td class="bLeft"><code>#time</code>
+                    </td>
+                    <td class="bRight">This is also a attribute but since time is a default attribute it has to be sent
+                      always.
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="bLeft"><code>&lt;current timestamp&gt;</code>
+                    </td>
+                    <td class="bRight">This is the value of the time attribute
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="bLeft"><code>@&lt;receiver&gt;</code>
+                    </td>
+                    <td class="bRight">This is the user name of the receiver of the massage.
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="bLeft"><code>^&lt;sender&gt;</code>
+                    </td>
+                    <td class="bRight">This is the user name of the sender of the massage.
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="bLeft"><code>&lt;digital signature&gt;</code>
+                    </td>
+                    <td class="bRight">This is the digital signature for which the sensZ-switch uses to verify that the
+                      intended user has sent the massage.
+                    </td>
+                  </tr>
+                </table>
+
+
+
+                <h1>SenZ types</h1>
+                <p>There are five types of SenZ. These types are SHARE, UNSHARE,
                     GET, PUT and DATA.
-                    <ul>
-                      <li>SHARE type is used to share something to a user.</li>
-                      <li>UNSHARE will do the opposite.</li>
-                      <li>GET type is used when requesting something from a user.</li>
-                      <li>PUT type is used when needs to do some alteration on IoT device. Main
-                        intention of PUT is to control the device.</li>
-                      <li>DATA type is used when sending a response to a SHARE, GET or PUT SenZ</li>
-                    </ul>
-                  </div>
-                </div>
+                </p>
+
+                <table>
+                  <tr>
+                    <td class="bListLeft"><code>SHARE</code></td>
+                    <td class="bListRight">This massage type is used when you need to share some attributes to some
+                      client/device.</td>
+                  </tr>
+                  <tr>
+                    <td class="bListLeft"><code>UNSHARE</code></td>
+                    <td class="bListRight">This does the opposite of the SHARE</td>
+                  </tr>
+                  <tr>
+                    <td class="bListLeft"><code>GET</code></td>
+                    <td class="bListRight">This massage type is used when you are requesting a SHARES attribute from
+                      a client/device.</td>
+                  </tr>
+                  <tr>
+                    <td class="bListLeft"><code>PUT</code></td>
+                    <td class="bListRight">This massage type is used when you need to do some alternation to the device.
+                      When you need to control some device/application/client.
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="bListLeft"><code>DATA</code></td>
+                    <td class="bListRight">This massage type is used when replying to a GET,PUT or a SHARE. To send
+                      the reply with the requested data.</td>
+                  </tr>
+                </table>
+
+
                 <div class="row">
                   <div class="col-md-12">
                     <h1>Message attributes</h1>Attributes are custom defined key/value pairs (values
@@ -90,29 +258,54 @@
                     key (AES 256).For an instance, when device is registering with switch called
                     senz, we need to share the public key to the switch by sending the following
                     Senz.
-                    <pre>                      <code>SHARE #pubkey &lt;base64 encoded pubkey&gt; #time &lt;current timestamp&gt;
-                        @senz ^username &lt;digital signature&gt;</code>
-                    </pre>
+                    <p></p>
+                    <pre>                     <code>SHARE #pubkey &lt;base64 encoded pubkey&gt; #time &lt;current timestamp&gt; @senz ^username &lt;digital signature&gt;</code></pre>
                   </div>
                 </div>
-              </div>
-            </div>
-            <div class="section">
-              <div class="container">
-                <div class="row">
-                  <div class="col-md-12">
-                    <ul class="pager">
-                      <li>
-                        <a href="#">←  Prev</a>
-                      </li>
-                      <li>
-                        <a href="#bootom">Next  →</a>
-                      </li>
+                <h1>Let's Take an Example scenario</h1>
+                <h3><span>Let's assume a Bank b1 would like to share balance
+                  transaction securely to a user u1.</span></h3>
+
+                <div class="col-sm-12 col-md-8 col-lg-8">
+                  <ul style="list-style-type:circle">
+                    <li>The bank (b1) should send the following Senze and obtain the public key of the user u1.
+                    <br>
+                    <pre><code>GET #pubkey @u1 #time t1 ^b1 Signature</code></pre>
+                    </li>
+                    <li>Senze switch delivers the public key as follows(If u1 is not exists, public key will not be sent).
+                      <br>
+                      <pre><code>DATA #pubkey PublicKeyOfu1 #time t2 ^mysensors Signature</code></pre>
+                    </li>
+                    <li>The bank(b1) should share the balance transaction and a AES key (k1) to the user u1.
+                      The key k1 is encrypted with the public key of the user u1.
+                      <br>
+                      <pre><code>SHARE #balance $key E(k1) @u1 #time t3 ^b1 Signature</code></pre>
+                    </li>
+                    <li>The user (u1) should reply to it as follows.
+                      <br>
+                      <pre><code>SHARE #msg OK @b1 #time t4 ^u1 Signature</code></pre>
+                    </li>
+
+                    <br>
+                    <center> The bank and the user can keep this AES key for encrypting the balance transactions.
+                      The bank can refresh the key by repeating the third step</center>
+                    <br>
+
+                    <li>The user(u1) should request the balance by sending the following SENZE.
+                    <br>
+                    <pre><code>GET #balance accountNumber @b1 #time t5 ^u1 Signature</code></pre>
+                   </li>
+                    <li>The bank b1 should response to it as follows.
+                      Account balance is encrypted by using the AES key(k1).(Upon received this DATA SENZE, user should
+                      decrypt it and display it on the application.)
+                      <br>
+                      <pre><code>DATA $balance E(x) @u1 #time t6 ^b1 Signature</code></pre>
+                    </li>
                     </ul>
-                  </div>
                 </div>
               </div>
             </div>
+   <p></p>
             <footer class="section section-primary" id="bootom">
               <div class="container">
                 <div class="row">
@@ -127,7 +320,7 @@
                       <br>
                     </p>
                     <div class="row">
-                      <div class="col-md-12 hidden-lg hidden-md hidden-sm text-left">
+                      <div class="col-md-10 hidden-lg hidden-md hidden-sm text-left">
                         <a href="#"><i class="fa fa-3x fa-fw fa-instagram text-inverse"></i></a>
                         <a href="#"><i class="fa fa-3x fa-fw fa-twitter text-inverse"></i></a>
                         <a href="#"><i class="fa fa-3x fa-fw fa-facebook text-inverse"></i></a>
@@ -135,7 +328,7 @@
                       </div>
                     </div>
                     <div class="row">
-                      <div class="col-md-12 hidden-xs text-right">
+                      <div class="col-md-10 hidden-xs text-right">
                         <a href="#"><i class="fa fa-3x fa-fw fa-instagram text-inverse"></i></a>
                         <a href="#"><i class="fa fa-3x fa-fw fa-twitter text-inverse"></i></a>
                         <a href="#"><i class="fa fa-3x fa-fw fa-facebook text-inverse"></i></a>

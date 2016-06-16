@@ -1,0 +1,234 @@
+<html><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+    <script type="text/javascript" src="http://netdna.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <link href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="http://pingendo.github.io/pingendo-bootstrap/themes/default/bootstrap.css" rel="stylesheet" type="text/css">
+</head><body>
+<style scoped>
+    .dropshadowclass {
+            border: solid 1px #CCC;
+        -moz-box-shadow: 5px 5px 0px #999;
+        -webkit-box-shadow: 5px 5px 0px #999;
+            box-shadow: 5px 5px 0px #999;
+            }
+    .imagedropshadow {
+        padding: 5px;
+        border: solid 1px #EFEFEF;
+    }
+    a:hover img.imagedropshadow {
+        border: solid 1px #CCC;
+        -moz-box-shadow: 1px 1px 5px #999;
+        -webkit-box-shadow: 1px 1px 5px #999;
+            box-shadow: 1px 1px 5px #999;
+    }
+
+    .bLeft
+    {
+        width: 500px;
+        height: 70px;
+    }
+    .bRight
+    {
+        width: 500px;
+        height: 70px;
+    }
+
+    .bTLeft
+    {
+        width: 500px;
+        height:300px;
+    }
+
+    .bTRight
+    {
+        width: 500px;
+        height:300px;
+    }
+
+
+    body {font-family: "Lato", sans-serif;}
+
+    ul.tab {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        border: 1px solid #ccc;
+        background-color: #B2C5EC;
+    }
+
+    /* Float the list items side by side */
+    ul.tab li {float: left;}
+
+    /* Style the links inside the list items */
+    ul.tab li a {
+        display: inline-block;
+        color: black;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+        transition: 0.3s;
+        font-size: 17px;
+    }
+
+    /* Change background color of links on hover */
+    ul.tab li a:hover {
+        background-color: #7BA7FF;
+    }
+
+    /* Create an active/current tablink class */
+    ul.tab li a:focus, .active {
+        background-color: #ccc;
+    }
+
+    /* Style the tab content */
+    .tabcontent {
+        display: none;
+        padding: 6px 12px;
+        border: 1px solid #ccc;
+        border-top: none;
+    }
+</style>
+
+
+<div class="section">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 text-justify" style="background-color: #337AFB; border: 4px solid #000000;">
+                <br>
+                <img src="http://www.mysensors.info/img/logo.png" class="img-responsive img-thumbnail">
+                <h4>Connect, right now with #sensors you care about.</h4>
+                <br>
+            </div>
+            <div class="col-md-8 text-justify">
+                <br>
+                <ul class="lead nav nav-pills">
+                    <li>
+                        <a href="index.html">Home</a>
+                    </li>
+                    <li >
+                        <a href="senz.html">SenZ</a>
+                    </li>
+                    <li>
+                        <a href="android.html">Android</a>
+                    </li>
+                    <li>
+                        <a href="python.html">Python</a>
+                    </li>
+                    <li class="active">
+                        <a href="#">Downloads</a>
+                    </li>
+                    <li>
+                        <a href="contact.html">Contact</a>
+                    </li>
+                </ul>
+                <br>
+                <h4>MySensor switch provides security and privacy in IoT applications. With
+                    help of MySensors, IoT devices can communicate each other with guaranteeing
+                    end to end security. MySensor supports IoT devices such as Smartphones(android)
+                    and Raspberry-pi.</h4>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="section" id="top">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+
+                <ul class="tab">
+                    <li><a href="#" class="tablinks" onclick="openCity(event, 'Source Code')">Source Code</a></li>
+                    <li><a href="#" class="tablinks" onclick="openCity(event, 'Publications')">Publications</a></li>
+                </ul>
+
+                <div id="Source Code" class="tabcontent">
+                    <h3>Source Code</h3>
+                    <h4><a href="https://github.com/iot-senz/senz-switch">SenZ-Switch</a></h4><p>General senz-switch source that coud be customized on your need </p>
+                    <br>
+                    <h4><a href="https://github.com/iot-senz/topupz">TopUpZ</a></h4><p>a Top up payment Application</p>
+                    <br>
+                    <h4><a href="https://github.com/iot-senz/payz-bank">PayZ-Bank</a></h4><p>a Mobile Banking application</p>
+                    <br>
+                    <h4 ><a href="https://github.com/iot-senz/shopz">ShopZ</a></h4><p>Secure canteen application for easy payment</p>
+                    <br>
+                    <h4><a href="https://github.com/iot-senz/payz">PayZ</a></h4><p>Secure Mobile payment Application</p>
+                    <br>
+                    <h4><a href="https://github.com/iot-senz/senz">senZ</a></h4><p>SenZ Client service for all android SenZ applications </p>
+                    <br>
+                    <h4><a href="https://github.com/iot-senz/sdbl-trans">SDBL-TRANZ</a></h4><p>Mobile banking system running on SDBL-SriLanka</p>
+                    <br>
+                    <h4><a href="https://github.com/iot-senz/locationz">LocationZ</a></h4><p>Location sharing application with senZ</p>
+                    <br>
+                    <h4><a href="https://github.com/iot-senz/sdbl-trans">SDBL-TRANZ</a></h4><p>Mobile banking system running on SDBL-SriLanka</p>
+                    <br>
+                </div>
+
+                <div id="Publications" class="tabcontent">
+                    <h3>Publications</h3>
+                    <h4><a href="#"><i>Research paper - Mysensors Platform</i></a></h4><p><i>Recently published research paper on Mysensors research</i></p>
+
+                </div>
+
+                <br>
+                <br>
+                <script>
+                    function openCity(evt, cityName) {
+                        var i, tabcontent, tablinks;
+                        tabcontent = document.getElementsByClassName("tabcontent");
+                        for (i = 0; i < tabcontent.length; i++) {
+                            tabcontent[i].style.display = "none";
+                        }
+                        tablinks = document.getElementsByClassName("tablinks");
+                        for (i = 0; i < tablinks.length; i++) {
+                            tablinks[i].className = tablinks[i].className.replace(" active", "");
+                        }
+                        document.getElementById(cityName).style.display = "block";
+                        evt.currentTarget.className += " active";
+                    }
+                </script>
+
+                <footer class="section section-primary" id="bootom">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-sm-6 col-md-8">
+                                <h1>Sustianable Computing Research Laboratory &nbsp;</h1>
+                                <p>35,Reid Avenue, Colombo 7, Sri Lanka
+                                    <br>Phone : +94112581124</p>
+                            </div>
+                            <div class="col-sm-6 col-md-4">
+                                <p class="text-info text-right">
+                                    <br>
+                                    <br>
+                                </p>
+                                <div class="row">
+                                    <div class="col-md-10 hidden-lg hidden-md hidden-sm text-left">
+                                        <a href="#"><i class="fa fa-3x fa-fw fa-instagram text-inverse"></i></a>
+                                        <a href="#"><i class="fa fa-3x fa-fw fa-twitter text-inverse"></i></a>
+                                        <a href="#"><i class="fa fa-3x fa-fw fa-facebook text-inverse"></i></a>
+                                        <a href="#"><i class="fa fa-3x fa-fw fa-github text-inverse"></i></a>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-10 hidden-xs text-right">
+                                        <a href="#"><i class="fa fa-3x fa-fw fa-instagram text-inverse"></i></a>
+                                        <a href="#"><i class="fa fa-3x fa-fw fa-twitter text-inverse"></i></a>
+                                        <a href="#"><i class="fa fa-3x fa-fw fa-facebook text-inverse"></i></a>
+                                        <a href="#"><i class="fa fa-3x fa-fw fa-github text-inverse"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </footer>
+                <font face="Times New Roman, serif">
+                    <font face="Times New Roman, serif"></font>
+                </font>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+</body></html>
